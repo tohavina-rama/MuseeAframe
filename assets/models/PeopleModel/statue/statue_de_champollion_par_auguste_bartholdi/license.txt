@@ -1,0 +1,8 @@
+Model Information:
+* title:	Statue de Champollion par Auguste Bartholdi
+* source:	https://sketchfab.com/3d-models/statue-de-champollion-par-auguste-bartholdi-61c889ea05a74f848b05a4727d41a9e0
+* author:	Frédérique Bertrand - 3D Imago Urbis (https://sketchfab.com/fre3darchi)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works

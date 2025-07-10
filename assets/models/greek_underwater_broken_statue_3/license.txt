@@ -1,0 +1,8 @@
+Model Information:
+* title:	Greek underwater broken statue 3
+* source:	https://sketchfab.com/3d-models/greek-underwater-broken-statue-3-a48e8b1fc7bf4858a1cb6054eada7e7b
+* author:	assetfactory (https://sketchfab.com/assetfactory)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
