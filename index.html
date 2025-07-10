@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <div id="splash-screen">
+      <h1>Bienvenue à L'Odyssée des Chefs-d'œuvre</h1>
+      <p>Prêt à explorer le musée ?</p>
+      <button id="start-button">Démarrer l'expérience</button>
+    </div>
+    <a-scene background="color: #ECECEC" style="display: none">
+      <!-- Caméra + Contrôles -->
+      <a-entity camera look-controls wasd-controls position="0 1.6 5" cursor="fuse: true; fuseTimeout: 1000" raycaster="objects: .interactable; far: 50">
+        <a-entity geometry="primitive: ring; radiusOuter: 0.01; radiusInner: 0.005" material="color: #000000; shader: flat" position="0 0 -1"></a-entity>
+      </a-entity>
+
+      <!-- Lumières -->
+      <a-light type="ambient" color="#fff" intensity="0.5"></a-light>
+      <a-light type="point" position="0 8 0" color="#fff" intensity="0.8" castShadow="true"></a-light>
+
+      <!-- Murs et sol -->
+      <a-box position="0 5 -15" width="40" height="10" depth="1" color="#FFFFFF"></a-box>
+      <a-box position="0 5 15" width="40" height="10" depth="1" color="#FFFFFF"></a-box>
+      <a-box position="-20 5 0" width="1" height="10" depth="30" color="#FFFFFF"></a-box>
+      <a-box position="20 5 0" width="1" height="10" depth="30" color="#FFFFFF"></a-box>
+      <a-plane class="interactable" sol-click-move-guide position="0 0 0" rotation="-90 0 0" width="40" height="30" material="src: url(assets/img/sol.png); repeat: 10 10;"></a-plane>
+      <a-box position="0 10 0" width="40" height="1" depth="30" color="#FFFFFF"></a-box>
+
+      <!-- Son -->
+      <a-entity sound="src: url(assets/audios/museum.mp3); loop: true; volume: 30;"></a-entity>
+
+      <!-- Guide -->
+      <a-entity id="guide" gltf-model="assets/models/PeopleModel/scene.gltf" position="0 0 -3" rotation="0 180 0"> </a-entity>
+
+      <!-- Bulle de texte -->
+      <a-entity id="guide-text-bubble" geometry="primitive: plane; width: 3.5; height: 0.8" material="color: #ADD8E6; opacity: 0.9" text="value: ; color: #000; width: 3; align: center; wrapCount: 25;" visible="false" follow-guide="offset: 0 3 0"></a-entity>
+
+      <!-- Tableaux -->
+      <a-image tableau-click-listener id="tableau1" src="assets/img/tableau1.png" width="4" height="3" position="-15 2 -5" class="interactable" tableau-info="title: Champs de lavande; artist: Inconnu; description: Une scene champetre aux couleurs vives."></a-image>
+      <a-image tableau-click-listener id="tableau2" src="assets/img/tableau2.png" width="4" height="3" position="-5 2 -5" class="interactable" tableau-info="title: Ballon rouge; artist: Paul Klee; description: Une oeuvre minimaliste et poetique."></a-image>
+      <a-image tableau-click-listener id="tableau3" src="assets/img/tableau3.png" width="4" height="3" position="5 2 -5" class="interactable" tableau-info="title: Abstraction bleue; artist: Inconnu; description: Une interpretation moderne de l'eau et de la lumiere."></a-image>
+      <a-image tableau-click-listener id="tableau4" src="assets/img/tableau4.png" width="4" height="3" position="15 2 -5" class="interactable" tableau-info="title: Abstraction contemporaine; artist: Inconnu; description: Un exemple fascinant d'art abstrait."></a-image>
+    </a-scene>
+  </body>
+</html>
