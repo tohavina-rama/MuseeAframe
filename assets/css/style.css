@@ -1,37 +1,108 @@
 body {
-  margin: 0;
-  overflow: hidden;
+    margin: 0;
+    overflow: hidden; /* Empêche le défilement et gère l'occupation de toute la fenêtre */
 }
 
 #splash-screen {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  z-index: 9999;
-  font-family: Arial, sans-serif;
-  text-align: center;
+    position: fixed; /* 'fixed' est souvent préférable à 'absolute' pour une superposition sur toute la fenêtre, même au défilement, bien que pour ce cas 'absolute' puisse fonctionner si le body ne défile pas. 'fixed' est plus robuste. */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Utilise la largeur de la vue (viewport width) */
+    height: 100vh; /* Utilise la hauteur de la vue (viewport height) */
+    background: rgba(0, 0, 0, 0.8); /* Garde votre fond semi-transparent */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 9999; /* Assure que l'écran de démarrage est au-dessus de tout le reste */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    /* Ajout pour un espacement interne, surtout sur les petits écrans */
+    padding: 20px; 
+    box-sizing: border-box; /* S'assure que le padding est inclus dans width/height */
 }
+
 #splash-screen h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
+    /* Taille de police réactive basée sur la largeur de la vue */
+    font-size: 8vw; 
+    margin-bottom: 2vh; /* Marge réactive basée sur la hauteur de la vue */
+    /* Empêche la taille de devenir trop petite ou trop grande sur des écrans extrêmes */
+    min-font-size: 2em; /* Taille minimale pour les très petits écrans */
+    max-font-size: 3.5em; /* Taille maximale pour les très grands écrans */
 }
+
+#splash-screen p {
+    /* Ajout d'un paragraphe (non présent dans votre code actuel, mais utile pour des messages) */
+    font-size: 4vw;
+    margin-bottom: 5vh;
+    min-font-size: 1em;
+    max-font-size: 2em;
+}
+
 #start-button {
-  padding: 15px 30px;
-  font-size: 1.5em;
-  cursor: pointer;
-  background: #4caf50;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
+    /* Padding réactif basé sur la hauteur et la largeur de la vue */
+    padding: 2vh 4vw; 
+    /* Taille de police réactive */
+    font-size: 4vw; 
+    cursor: pointer;
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    transition: background 0.3s ease; /* Utilise 'background' pour la transition de couleur */
+    /* Empêche la taille de devenir trop petite ou trop grande */
+    min-width: 150px; /* Largeur minimale du bouton */
+    min-height: 50px; /* Hauteur minimale du bouton */
+    max-width: 400px; /* Largeur maximale du bouton */
+    max-font-size: 2em; /* Taille de police maximale */
 }
+
 #start-button:hover {
-  background: #45a049;
+    background: #45a049;
+}
+
+/* --- Media Queries pour affiner le design sur des tailles d'écran spécifiques --- */
+
+/* Pour les écrans très petits (ex: la plupart des téléphones en mode portrait) */
+@media (max-width: 480px) {
+    #splash-screen h1 {
+        font-size: 10vw; /* Rend le titre un peu plus grand sur les petits écrans */
+    }
+    #splash-screen p {
+        font-size: 5vw;
+    }
+    #start-button {
+        font-size: 5vw;
+        padding: 2.5vh 5vw;
+    }
+}
+
+/* Pour les tablettes ou les téléphones en mode paysage */
+@media (min-width: 481px) and (max-width: 900px) {
+    #splash-screen h1 {
+        font-size: 6vw;
+    }
+    #splash-screen p {
+        font-size: 3.5vw;
+    }
+    #start-button {
+        font-size: 3.5vw;
+        padding: 2vh 4vw;
+    }
+}
+
+/* Pour les grands écrans d'ordinateurs de bureau */
+@media (min-width: 901px) {
+    #splash-screen h1 {
+        font-size: 3em; /* On peut revenir à des 'em' pour plus de contrôle sur les très grands écrans */
+        margin-bottom: 20px;
+    }
+    #splash-screen p {
+        font-size: 1.2em;
+    }
+    #start-button {
+        padding: 15px 30px;
+        font-size: 1.5em;
+    }
 }
